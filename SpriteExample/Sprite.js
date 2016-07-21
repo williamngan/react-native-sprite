@@ -28,10 +28,10 @@ class Sprite extends Component {
   animate( shouldPlay ) {
     SpriteManager.animate( findNodeHandle(this), shouldPlay );
   }
-
+  
   // On Mount, initiate the sequence from the props
   componentDidMount() {
-    this.createSequence( this.props.imagePath, this.props.count, this.props.format, this.props.duration )
+    this.createSequence( this.props.imagePath, this.props.count, this.props.format, this.props.duration );
     this.animate( this.props.animated );
   }
 
@@ -42,10 +42,13 @@ class Sprite extends Component {
 
 
   render() {
+
     return <SpriteNative style={ this.props.style }
-                         duration={this.props.duration || 0.5}
                          onLayout={this._onLayout.bind(this)}
+                         repeatCount={ this.props.repeatCount || 0 }
+                         duration={this.props.duration || 0.5}
                          imageNumber={this.props.imageNumber || 0}
+                         imageLayout={ this.props.imageLayout || "contain"}
                          animated={this.props.animated || false} />;
   }
 

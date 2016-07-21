@@ -43,6 +43,12 @@ public class Sprite: UIView {
   
   
   /**
+   Set sprite's animationRepeatCount when it's animating
+  */
+  public var repeatCount: Int = 0;
+  
+  
+  /**
     Image Number property
     This is used to control which image to display by its index
   */
@@ -69,6 +75,10 @@ public class Sprite: UIView {
    */
   private var _animated: Bool = false
   
+  public func animate( shouldPlay: Bool ) {
+    setAnimated(shouldPlay)
+  }
+  
   // bridge for React property setter
   public func setAnimated( shouldPlay:Bool ) {
     _animated = shouldPlay
@@ -76,6 +86,7 @@ public class Sprite: UIView {
     if _animated != sprite!.isAnimating() {
       if shouldPlay {
         sprite!.animationImages = seq
+        sprite!.animationRepeatCount = repeatCount
         sprite!.startAnimating()
 
       } else {
@@ -84,8 +95,57 @@ public class Sprite: UIView {
     }
   }
   
-  public func animate( shouldPlay: Bool ) {
-    setAnimated(shouldPlay)
+  
+  // storing both the css-style string and the contentMode enum for use in layoutSubViews etc
+  private var _imageLayout: String = "contain"
+  private var _contentMode: UIViewContentMode = UIViewContentMode.ScaleAspectFit
+  
+  /**
+   Bridge UIImageView's contentMode to a css style string for React Native
+  */
+  public func setImageLayout( mode:String ) {
+    
+    if mode == _imageLayout {
+      return
+    }
+    
+    var c = UIViewContentMode.ScaleAspectFit
+    
+    switch mode {
+      case "contain":
+        c = UIViewContentMode.ScaleAspectFit
+      case "cover":
+        c = UIViewContentMode.ScaleAspectFill
+      case "stretch":
+        c = UIViewContentMode.ScaleToFill
+      case "redraw":
+        c = UIViewContentMode.Redraw
+      case "center":
+        c = UIViewContentMode.Center
+      case "top":
+        c = UIViewContentMode.Top
+      case "bottom":
+        c = UIViewContentMode.Bottom
+      case "left":
+        c = UIViewContentMode.Left
+      case "right":
+        c = UIViewContentMode.Right
+      case "topLeft", "top-left":
+        c = UIViewContentMode.TopLeft
+      case "topRight", "top-right":
+        c = UIViewContentMode.TopRight
+      case "bottomLeft", "bottom-left":
+        c = UIViewContentMode.BottomLeft
+      case "bottomRight", "bottom-right":
+        c = UIViewContentMode.BottomRight
+      default:
+        c = UIViewContentMode.ScaleAspectFit
+    }
+    
+    _imageLayout = mode
+    _contentMode = c
+    sprite!.contentMode = c
+    
   }
   
   
@@ -156,7 +216,7 @@ public class Sprite: UIView {
       
       sprite!.animationImages = seq
       sprite!.animationDuration = duration
-      sprite!.contentMode = UIViewContentMode.ScaleAspectFit
+      sprite!.contentMode = _contentMode
       
     }
     
@@ -165,6 +225,7 @@ public class Sprite: UIView {
   
   // When the layout changes, update the UIImageView sprite sizes too
   override public func layoutSubviews() {
+    sprite!.contentMode = _contentMode
     sprite!.frame = CGRect(x: 0, y:0, width: frame.width, height: frame.height)
   }
   

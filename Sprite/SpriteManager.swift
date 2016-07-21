@@ -23,5 +23,14 @@ class SpriteManager : RCTViewManager {
     }
   }
   
+  
+  @objc func animate(reactTag: NSNumber, shouldPlay:Bool ) {
+    
+    // Let's start with some spaghetti to get a view!
+    self.bridge!.uiManager.addUIBlock { (uiManager: RCTUIManager!, viewRegistry:[NSNumber : UIView]!) in
+      let view: Sprite = viewRegistry[reactTag] as! Sprite;
+      view.animate( shouldPlay );
+    }
+  }
 
 }
