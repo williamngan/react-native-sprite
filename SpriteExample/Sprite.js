@@ -28,10 +28,11 @@ class Sprite extends Component {
   animate( shouldPlay ) {
     SpriteManager.animate( findNodeHandle(this), shouldPlay );
   }
-  
+
   // On Mount, initiate the sequence from the props
   componentDidMount() {
     this.createSequence( this.props.imagePath, this.props.count, this.props.format, this.props.duration )
+    this.animate( this.props.animated );
   }
 
 

@@ -84,6 +84,11 @@ public class Sprite: UIView {
     }
   }
   
+  public func animate( shouldPlay: Bool ) {
+    setAnimated(shouldPlay)
+  }
+  
+  
   /**
    Count property
    This should match the number of images in your image sequence

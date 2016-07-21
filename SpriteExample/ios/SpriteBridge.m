@@ -13,5 +13,6 @@
 
   RCT_EXTERN_METHOD( createSequence: (nonnull NSNumber *)reactTag nameWithPath:(NSString *)nameWithPath count:(NSInteger *)count format:(NSString *)format duration:(double *)duration )
 
+  RCT_EXTERN_METHOD( animate: (nonnull NSNumber *)reactTag shouldPlay:(BOOL *)shouldPlay )
 
 @end
