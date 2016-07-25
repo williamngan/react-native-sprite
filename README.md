@@ -24,14 +24,16 @@ Then, run `react-native run-ios` in `SpriteExample` folder. You should see this 
 The Sprite component has the following props:   
 &nbsp;   
 
-- **imagePath** : A string to specify "folder/name". Eg, if you have "world0.png ... world10.png" in "hello" folder, the `imagePath` would be "hello/world"   
-- **format** : Your image file's extension. Eg, "png" or "jpg"
-- **count** : Number of images in your sequence
-- **duration** : Time in seconds to play a full cycle of your image sequence. Eg, 0.5 = play a full sequence every 500 milliseconds.
-- **animated** : A boolean to start or stop the animation
-- **imageNumber** : When not animating, you can display a specific image by its number. Eg, 3 will display "img3.png"
-- **repeatCount** : Number of loops to play before animation stops. If unspecified, animation will play continuously.
-- **contentMode** : A string key to specify how to lay out the image in view. Valid keys are: `contain, cover, stretch, top, bottom, left, right, topLeft, topRight, bottomLeft, bottomRight`. Default is "contain" if unspecified.
+| prop | type | description | required |
+|------|------|-------------|----------|
+| **imagePath** | string | A string to specify "folder/name". Eg, if you added a folder called "hello", with files "world0.png ... world10.png" inside, the `imagePath` would be "hello/world"  | yes |
+| **count** | integer | Number of images in your sequence | yes |
+| **format** | string | Your image file's extension. Eg, "png" or "jpg". Default is "png" | no |
+| **duration** | float | Time in seconds to play a full cycle of your image sequence. Eg, 0.5 = play a full sequence every 500 milliseconds. Default is 0.5. | no |
+| **animated** | boolean | A boolean to start or stop the animation. Default is false. | no |
+| **imageNumber** | integer | When not animating, you can display a specific image by its number. Eg, 3 will display "img3.png" | no |
+| **repeatCount** | integer | Number of loops to play before animation stops. If unspecified, animation will play continuously. | no |
+| **contentMode** | string | A string key to specify how to lay out the image in view. Valid keys are: `contain, cover, stretch, top, bottom, left, right, topLeft, topRight, bottomLeft, bottomRight`. Default is "contain". | no |
 
 &nbsp;   
 
