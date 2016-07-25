@@ -21,7 +21,8 @@ Then, run `react-native run-ios` in `SpriteExample` folder. You should see this 
 
 
 ## Component Properties
-The Sprite component has the following props:
+The Sprite component has the following props:   
+&nbsp;   
 
 - **imagePath** : A string to specify "folder/name". Eg, if you have "world0.png ... world10.png" in "hello" folder, the `imagePath` would be "hello/world"   
 - **format** : Your image file's extension. Eg, "png" or "jpg"
@@ -31,6 +32,8 @@ The Sprite component has the following props:
 - **imageNumber** : When not animating, you can display a specific image by its number. Eg, 3 will display "img3.png"
 - **repeatCount** : Number of loops to play before animation stops. If unspecified, animation will play continuously.
 - **contentMode** : A string key to specify how to lay out the image in view. Valid keys are: `contain, cover, stretch, top, bottom, left, right, topLeft, topRight, bottomLeft, bottomRight`. Default is "contain" if unspecified.
+
+&nbsp;   
 
 Additionally, Sprite component also provides 2 methods: `createSequence(nameWithPath, count, format, duration)` and `animate( shouldPlay )` if you need them instead of using props above.
 
