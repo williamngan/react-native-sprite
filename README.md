@@ -5,11 +5,12 @@ This is experimental and currently works in XCode **7.3** with React Native **0.
 
 The folders are organized like this:
 
-- **Sprite** : the iOS bridge stuff
-- **SpriteComponent** : Component for react-native
-- **SpriteExample** An example react-native project with Sprite component
+- [**Sprite**](./Sprite) : the iOS bridge stuff
+- [**SpriteComponent**](./SpriteComponent) : Component for react-native
+- [**SpriteExample**](./SpriteExample) An example react-native project with Sprite component
 
-
+&nbsp;   
+   
 ## Example
 First, download or clone this repo, and then go to Terminal or CMD, and run `npm install` in the `SpriteExample` folder. This will download the `react-native` library. It may take a while.
 
@@ -37,6 +38,7 @@ Take a look at `index.ios.js` in `SpriteExample` folder for reference.
 
 ![code](./images/componentCode.png)
     
+&nbsp;
 
 ## Setting it up in your project
 
@@ -68,7 +70,7 @@ Add this component into your react-native project in these 7 tedious steps! I wi
    
 ![addFiles](./images/bridgeHeader.png)   
    
-**7)** Almost there! Finally, add the `Sprite.js` file in `SpriteComponent` folder into your ReactNative project. (Not in XCode "ios" project.) Then you can use it as a component like this:   
+**7)** Almost there! Finally, add the `Sprite.js` file from `SpriteComponent` folder to your ReactNative project. (Not in XCode "ios" project.) Then you can use it as a component like this:   
    
 ```javascript
 const Sprite = require('./Sprite.js');
