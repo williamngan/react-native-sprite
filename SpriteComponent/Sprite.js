@@ -21,12 +21,12 @@ class Sprite extends Component {
   // Bridge to Sprite.swift's function
   createSequence(nameWithPath, count, format, duration) {
     // Use findNodeHandle from react-native.
-    SpriteManager.createSequence(findNodeHandle(this), nameWithPath, count, format, duration);
+    SpriteManager.createSequence(findNodeHandle(this), nameWithPath, count || 1, format || "png", duration || 0.5);
   }
 
   // Bridge to Sprite.swift's function
   animate( shouldPlay ) {
-    SpriteManager.animate( findNodeHandle(this), shouldPlay );
+    SpriteManager.animate( findNodeHandle(this), shouldPlay || false );
   }
   
   // On Mount, initiate the sequence from the props
