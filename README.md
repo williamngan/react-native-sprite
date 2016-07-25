@@ -12,7 +12,7 @@ The folders are organized like this:
 &nbsp;   
    
 ## Example
-First, download or clone this repo, and then go to Terminal or CMD, and run `npm install` in the `SpriteExample` folder. This will download the `react-native` library. It may take a while.
+First, download or clone this repo, or and then go to Terminal or CMD, and run `npm install` in the `SpriteExample` folder. This will download the `react-native` library. It may take a while.
 
 Then, run `react-native run-ios` in `SpriteExample` folder. You should see this when it finishes building. Woot!
 
@@ -64,6 +64,8 @@ Add this component into your react-native project in these 7 tedious steps! I wi
 
 **5)** Next, add a folder of images that you want to animate. You can find some images in [`react-native-sprite/SpriteExample/ios/rider`](./SpriteExample/ios/rider) for testing. Like step #2, right-click the project folder and select "Add files..."   
 
+Note that you may need to clean and rebuild XCode project after adding new assets. 
+
 **6)** Click on the generated bridge header file from step 4 (`ProjectFoo-Bridging-Header.h`), and add these two lines into the file.   
    
 ```objective-c
@@ -73,11 +75,13 @@ Add this component into your react-native project in these 7 tedious steps! I wi
    
 ![addFiles](./images/bridgeHeader.png)   
    
-**7)** Almost there! Finally, copy the `Sprite.js` file in `SpriteComponent` folder into your ReactNative project. (Not in XCode "ios" project.) Then you can use it as a component like this:   
+**7)** Almost there! Finally, copy the `Sprite.js` file in `SpriteComponent` folder into your ReactNative project. (Not in XCode "ios" project.) Alternatively, get it from [`npm install react-native-sprite`](https://www.npmjs.com/package/react-native-sprite).
+
+Then you can use it as a component like this:   
    
 ```javascript
 const Sprite = require('./Sprite.js');
-
+// import Sprite from 'react-native-sprite'; // Use this if you install from npm
 
 class SpriteExample extends Component {
   
@@ -90,6 +94,8 @@ class SpriteExample extends Component {
 ```
  
 Take a look at `index.ios.js` in `SpriteExample` folder for reference.   
+
+And that's it. Run `react-native run-ios` in Terminal, or click the Play button in XCode to test it in Simulator.
 &nbsp;    
 
 
