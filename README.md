@@ -12,7 +12,7 @@ The folders are organized like this:
 &nbsp;   
    
 ## Example
-First, download or clone this repo, or and then go to Terminal or CMD, and run `npm install` in the `SpriteExample` folder. This will download the `react-native` library. It may take a while.
+First, download or clone this repo, and then go to Terminal or CMD, and run `npm install` in the `SpriteExample` folder. This will download the `react-native` library. It may take a while.
 
 Then, run `react-native run-ios` in `SpriteExample` folder. You should see this when it finishes building. Woot!
 
