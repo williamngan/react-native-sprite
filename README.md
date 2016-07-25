@@ -68,15 +68,19 @@ Add this component into your react-native project in these 7 tedious steps! I wi
    
 ![addFiles](./images/bridgeHeader.png)   
    
-**7)** Almost there! Finally, add the `Sprite.js` file in `SpriteComponent` folder into your ReactNative project. (Not in XCode "ios" project.) Then you can use it as a component like this:   
+**7)** Almost there! Finally, copy the `Sprite.js` file in `SpriteComponent` folder into your ReactNative project. (Not in XCode "ios" project.) Then you can use it as a component like this:   
    
 ```javascript
 const Sprite = require('./Sprite.js');
 
-...
 
-render() {
-  return (<View {props}><Sprite {props} /></View>)
+class SpriteExample extends Component {
+  
+  ...
+  
+  render() {
+    return (<View><Sprite style={...} imagePath="folder/imgName" count={10} animated={true} /></View>)
+  }
 }
 ```
  
