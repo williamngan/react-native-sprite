@@ -1,0 +1,24 @@
+{
+  "name": "react-native-sprite",
+  "version": "0.1.0",
+  "description": "Animated Images for React Native",
+  "main": "SpriteComponent/Sprite.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamngan/react-native-sprite.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "swift"
+  ],
+  "author": "William Ngan",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/williamngan/react-native-sprite/issues"
+  },
+  "homepage": "https://github.com/williamngan/react-native-sprite#readme"
+}
