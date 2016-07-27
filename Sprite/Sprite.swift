@@ -202,7 +202,7 @@ public class Sprite: UIView {
   
     if count > 0 && !imageName.isEmpty {
       
-      sprite!.image = UIImage(named: "\(imageName)1.\(format)")
+      sprite!.image = UIImage(named: "\(imageName)0.\(format)")
       
       seq = Array<UIImage>()
       
