@@ -48,9 +48,10 @@ public class Sprite: UIView {
   public var _repeatCount: Int = 0;
   
   public func setRepeatCount( n: Int ) {
-    print("repeat", n)
-    if n >= 0 && n != sprite!.animationRepeatCount {
-      sprite!.animationRepeatCount = n
+
+    if n >= 0 && n != _repeatCount {
+        _repeatCount = n
+        sprite!.animationRepeatCount = n
 
       if _animated {
         sprite!.startAnimating()
