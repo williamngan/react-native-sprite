@@ -28,7 +28,14 @@ class Sprite extends Component {
   animate( shouldPlay ) {
     SpriteManager.animate( findNodeHandle(this), shouldPlay || false );
   }
-  
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.imagePath != this.props.imagePath) {
+      this.createSequence( nextProps.imagePath, nextProps.count, nextProps.format, nextProps.duration );
+      this.animate( nextProps.animated );
+    }
+  }
+
   // On Mount, initiate the sequence from the props
   componentDidMount() {
     this.createSequence( this.props.imagePath, this.props.count, this.props.format, this.props.duration );

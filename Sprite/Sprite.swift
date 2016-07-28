@@ -45,9 +45,19 @@ public class Sprite: UIView {
   /**
    Set sprite's animationRepeatCount when it's animating
   */
-  public var repeatCount: Int = 0;
+  public var _repeatCount: Int = 0;
   
-  
+  public func setRepeatCount( n: Int ) {
+    print("repeat", n)
+    if n >= 0 && n != sprite!.animationRepeatCount {
+      sprite!.animationRepeatCount = n
+
+      if _animated {
+        sprite!.startAnimating()
+      }
+    }
+  }
+
   /**
     Image Number property
     This is used to control which image to display by its index
@@ -86,7 +96,7 @@ public class Sprite: UIView {
     if _animated != sprite!.isAnimating() {
       if shouldPlay {
         sprite!.animationImages = seq
-        sprite!.animationRepeatCount = repeatCount
+        sprite!.animationRepeatCount = _repeatCount
         sprite!.startAnimating()
 
       } else {
