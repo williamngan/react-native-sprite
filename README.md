@@ -66,6 +66,10 @@ Add this component into your react-native project in these 7 tedious steps! I wi
 
 **5)** Next, add a folder of images that you want to animate. You can find some images in [`react-native-sprite/SpriteExample/ios/rider`](./SpriteExample/ios/rider) for testing. Like step #2, right-click the project folder and select "Add files..."   
 
+Choose **`Copy items if needed`** and **`Create folder reference`** (if you want to refer the images by **`folder/imageName`**) under [Options in the dialog](https://developer.apple.com/library/ios/recipes/xcode_help-structure_navigator/articles/Adding_an_Existing_File_or_Folder.html).
+
+![folderReference](./images/createFolderReference.png)
+
 Note that you may need to clean and rebuild XCode project after adding new assets. 
 
 **6)** Click on the generated bridge header file from step 4 (`ProjectFoo-Bridging-Header.h`), and add these two lines into the file.   
