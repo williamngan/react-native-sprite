@@ -48,10 +48,9 @@ public class Sprite: UIView {
   public var _repeatCount: Int = 0;
   
   public func setRepeatCount( n: Int ) {
-
-    if n >= 0 && n != _repeatCount {
-        _repeatCount = n
-        sprite!.animationRepeatCount = n
+    print("repeat", n)
+    if n >= 0 && n != sprite!.animationRepeatCount {
+      sprite!.animationRepeatCount = n
 
       if _animated {
         sprite!.startAnimating()
@@ -69,7 +68,7 @@ public class Sprite: UIView {
   public func setImageNumber( n: Int ) {
     
     _imageNumber = n
-    if !sprite!.isAnimating() && seq != nil {
+    if !sprite!.isAnimating && seq != nil {
       
       // boundary
       _imageNumber = _imageNumber % seq!.count
@@ -87,14 +86,14 @@ public class Sprite: UIView {
   private var _animated: Bool = false
   
   public func animate( shouldPlay: Bool ) {
-    setAnimated(shouldPlay)
+    setAnimated(shouldPlay: shouldPlay)
   }
   
   // bridge for React property setter
   public func setAnimated( shouldPlay:Bool ) {
     _animated = shouldPlay
     
-    if _animated != sprite!.isAnimating() {
+    if _animated != sprite!.isAnimating {
       if shouldPlay {
         sprite!.animationImages = seq
         sprite!.animationRepeatCount = _repeatCount
@@ -109,7 +108,7 @@ public class Sprite: UIView {
   
   // storing both the css-style string and the contentMode enum for use in layoutSubViews etc
   private var _imageLayout: String = "contain"
-  private var _contentMode: UIViewContentMode = UIViewContentMode.ScaleAspectFit
+  private var _contentMode: UIViewContentMode = UIViewContentMode.scaleAspectFit
   
   /**
    Bridge UIImageView's contentMode to a css style string for React Native
@@ -120,37 +119,37 @@ public class Sprite: UIView {
       return
     }
     
-    var c = UIViewContentMode.ScaleAspectFit
+    var c = UIViewContentMode.scaleAspectFit
     
     switch mode {
       case "contain":
-        c = UIViewContentMode.ScaleAspectFit
+        c = UIViewContentMode.scaleAspectFit
       case "cover":
-        c = UIViewContentMode.ScaleAspectFill
+        c = UIViewContentMode.scaleAspectFill
       case "stretch":
-        c = UIViewContentMode.ScaleToFill
+        c = UIViewContentMode.scaleToFill
       case "redraw":
-        c = UIViewContentMode.Redraw
+        c = UIViewContentMode.redraw
       case "center":
-        c = UIViewContentMode.Center
+        c = UIViewContentMode.center
       case "top":
-        c = UIViewContentMode.Top
+        c = UIViewContentMode.top
       case "bottom":
-        c = UIViewContentMode.Bottom
+        c = UIViewContentMode.bottom
       case "left":
-        c = UIViewContentMode.Left
+        c = UIViewContentMode.left
       case "right":
-        c = UIViewContentMode.Right
+        c = UIViewContentMode.right
       case "topLeft", "top-left":
-        c = UIViewContentMode.TopLeft
+        c = UIViewContentMode.topLeft
       case "topRight", "top-right":
-        c = UIViewContentMode.TopRight
+        c = UIViewContentMode.topRight
       case "bottomLeft", "bottom-left":
-        c = UIViewContentMode.BottomLeft
+        c = UIViewContentMode.bottomLeft
       case "bottomRight", "bottom-right":
-        c = UIViewContentMode.BottomRight
+        c = UIViewContentMode.bottomRight
       default:
-        c = UIViewContentMode.ScaleAspectFit
+        c = UIViewContentMode.scaleAspectFit
     }
     
     _imageLayout = mode
