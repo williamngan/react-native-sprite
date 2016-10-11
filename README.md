@@ -1,7 +1,7 @@
 # Animated Image Sequence for React Native (iOS)
 `react-native-sprite` is a React Native component for animating a sequence of images. Under the hood, it bridges UIImageView to animate images in native iOS.
 
-This is experimental and currently works in XCode **7.3** with React Native **0.29**. There's also a basic **Swift 3** example in [SpriteExampleSwift3](https://github.com/williamngan/react-native-sprite/tree/master/SpriteExampleSwift3) folder.
+This is experimental and currently works in XCode **7.3** with React Native **0.34**. There's also a basic **Swift 3** example in [SpriteExampleSwift3](https://github.com/williamngan/react-native-sprite/tree/master/SpriteExampleSwift3) folder.
 
 The folders are organized like this:
 
@@ -22,8 +22,9 @@ Then, run `react-native run-ios` in `SpriteExample` folder. You should see this 
 ## Known Issues
 - Avoid using a long sequence of large images. This may make it crash in older iPhones and/or take a long time to load. Please submit a pull request if you have a fix for [this issue](https://github.com/williamngan/react-native-sprite/issues/4).
 - React Native is a bit of a moving target and many things undocumented. Please file [issues](https://github.com/williamngan/react-native-sprite/issues) or ping [@williamngan](https://twitter.com/williamngan) for bugs and suggestions.  
-- Experimental, with rough edges ;-)
+- Experimental, with rough edges :sweat_smile:
 
+&nbsp;  
 
 ## Component Properties
 The Sprite component has the following props:   
